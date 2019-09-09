@@ -35,4 +35,12 @@ public class ArmourController {
         repository.delete(existing);
         return existing;
     }
+
+    @RequestMapping(value = "armour/{id}",method=RequestMethod.PUT)
+    public Armour updateLoadout(@PathVariable Long id,@RequestBody Armour armour){
+        Armour existing = repository.findOne(id);
+        existing = armour;
+        return repository.saveAndFlush(existing);
+
+    }
 }
