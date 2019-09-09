@@ -10,12 +10,13 @@ public class Armour {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
+
     private String name;
     private int light;
     private String slot;
-    private String group;
+    private String charClass;
+    private Long loadoutId;
 
 
     public Long getId() {
@@ -50,15 +51,19 @@ public class Armour {
         this.slot = slot;
     }
 
-    public String getGroup() {
-        return group;
+    public String getCharClass() {
+        return charClass;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setCharClass(String charClass) {
+        this.charClass = charClass;
     }
 
+    public Long getLoadoutId() {
+        return loadoutId;
+    }
 
-
-
+    public void setLoadoutId(Long loadoutId) {
+        this.loadoutId = loadoutId;
+    }
 }

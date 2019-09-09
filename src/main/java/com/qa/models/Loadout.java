@@ -6,17 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Loadout {
+public class Loadout{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
-    private Armour helmet;
-    private Armour arms;
-    private Armour chest;
-    private Armour legs;
-    private Armour mark;
+
+    private Long helmetId;
+    private Long armId;
+    private Long chestId;
+    private Long legId;
+    private Long markId;
 
     public Long getId() {
         return id;
@@ -26,46 +26,43 @@ public class Loadout {
         this.id = id;
     }
 
-    public Armour getHelmet() {
-        return helmet;
+    public Long getHelmetId() {
+        return helmetId;
     }
 
-    public void setHelmet(Armour helmet) {
-        this.helmet = helmet;
+    public void setHelmetId(Long helmetId) {
+        this.helmetId = helmetId;
     }
 
-    public Armour getArms() {
-        return arms;
+    public Long getArmId() {
+        return armId;
     }
 
-    public void setArms(Armour arms) {
-        this.arms = arms;
+    public void setArmId(Long armId) {
+        this.armId = armId;
     }
 
-    public Armour getChest() {
-        return chest;
+    public Long getChestId() {
+        return chestId;
     }
 
-    public void setChest(Armour chest) {
-        this.chest = chest;
+    public void setChestId(Long chestId) {
+        this.chestId = chestId;
     }
 
-    public Armour getLegs() {
-        return legs;
+    public Long getLegId() {
+        return legId;
     }
 
-    public void setLegs(Armour legs) {
-        this.legs = legs;
+    public void setLegId(Long legId) {
+        this.legId = legId;
     }
 
-    public Armour getMark() {
-        return mark;
+    public Long getMarkId() {
+        return markId;
     }
 
-    public void setMark(Armour mark) {
-        this.mark = mark;
+    public void setMarkId(Long markId) {
+        this.markId = markId;
     }
-
-
-
 }
