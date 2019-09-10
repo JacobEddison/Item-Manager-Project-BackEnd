@@ -44,7 +44,8 @@ public class ArmourController {
         existing.setSlot(armour.getSlot());
         existing.setCharClass(armour.getCharClass());
         existing.setLoadoutId(armour.getLoadoutId());
-        return repository.saveAndFlush(existing);
+        repository.saveAndFlush(existing);
+        return existing;
 
     }
 }
