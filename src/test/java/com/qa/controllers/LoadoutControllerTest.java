@@ -13,6 +13,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyLong;
+import static org.mockito.Mockito.when;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class LoadoutControllerTest {
@@ -37,5 +42,30 @@ public class LoadoutControllerTest {
         loadout.setMarkId(6L);
 
         loadoutList.add(loadout);
+
+        when(repository.findAll()).thenReturn(loadoutList);
+
+        assertEquals(loadoutController.listAllLoadout().get(0).getArmId(),"3L");
+
+    }
+
+    @Test
+    public void testGetLoadout(){
+
+    }
+
+    @Test
+    public void testSetLoadout(){
+
+    }
+
+    @Test
+    public void testDeleteLoadout(){
+
+    }
+
+    @Test
+    public void testUpdateLoadout(){
+
     }
 }
