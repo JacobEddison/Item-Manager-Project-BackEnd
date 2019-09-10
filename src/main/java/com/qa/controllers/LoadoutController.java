@@ -39,7 +39,11 @@ public class LoadoutController {
     @RequestMapping(value = "loadout/{id}",method=RequestMethod.PUT)
     public Loadout updateLoadout(@PathVariable Long id,@RequestBody Loadout loadout){
         Loadout existing = repository.findOne(id);
-        existing = loadout;
+        existing.setHelmetId(loadout.getHelmetId());
+        existing.setArmId(loadout.getArmId());
+        existing.setChestId(loadout.getChestId());
+        existing.setLegId(loadout.getLegId());
+        existing.setMarkId(loadout.getMarkId());
         return repository.saveAndFlush(existing);
 
     }

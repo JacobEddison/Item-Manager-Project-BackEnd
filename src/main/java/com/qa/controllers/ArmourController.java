@@ -39,7 +39,11 @@ public class ArmourController {
     @RequestMapping(value = "armour/{id}",method=RequestMethod.PUT)
     public Armour updateLoadout(@PathVariable Long id,@RequestBody Armour armour){
         Armour existing = repository.findOne(id);
-        existing = armour;
+        existing.setName(armour.getName());
+        existing.setLight(armour.getLight());
+        existing.setSlot(armour.getSlot());
+        existing.setCharClass(armour.getCharClass());
+        existing.setLoadoutId(armour.getLoadoutId());
         return repository.saveAndFlush(existing);
 
     }
