@@ -88,6 +88,16 @@ public class ArmourControllerTest {
 
     @Test
     public void testUpdateArmour(){
+        Armour armour1 = new Armour();
+        armour1.setName("dave");
+        armour1.setLight(700);
+        Armour armour2 = new Armour();
+        armour2.setName("bob");
+        armour2.setLight(650);
+
+        when(repository.findOne(0L)).thenReturn(armour1);
+
+        assertEquals(armourController.updateArmour(0L,armour2).getName(), "bob");
 
     }
 }

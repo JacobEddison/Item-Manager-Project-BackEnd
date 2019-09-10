@@ -37,7 +37,7 @@ public class ArmourController {
     }
 
     @RequestMapping(value = "armour/{id}",method=RequestMethod.PUT)
-    public Armour updateLoadout(@PathVariable Long id,@RequestBody Armour armour){
+    public Armour updateArmour(@PathVariable Long id,@RequestBody Armour armour){
         Armour existing = repository.findOne(id);
         existing.setName(armour.getName());
         existing.setLight(armour.getLight());
