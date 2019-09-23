@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class ArmourControllerTest {
         armour.setLoadoutId(10L);
         armour.setLight(100);
 
-        when(repository.findOne(0L)).thenReturn(armour);
+        when(repository.findById(0L).orElse(null)).thenReturn(armour);
 
         assertEquals(armourController.getArmour(0L).getName(),"bob");
         assertEquals(armourController.getArmour(0L).getLight(), 100);
@@ -81,7 +81,7 @@ public class ArmourControllerTest {
         armour.setName("nuyce");
         armour.setLight(250);
 
-        when(repository.findOne(0L)).thenReturn(armour);
+        when(repository.findById(0L).orElse(null)).thenReturn(armour);
 
         assertEquals(armourController.deleteArmour(0L).getName(), "nuyce");
     }
@@ -95,7 +95,7 @@ public class ArmourControllerTest {
         armour2.setName("bob");
         armour2.setLight(650);
 
-        when(repository.findOne(0L)).thenReturn(armour1);
+        when(repository.findById(0L).orElse(null)).thenReturn(armour1);
         when(repository.saveAndFlush(armour1)).thenReturn(armour1);
 
         assertEquals(armourController.updateArmour(0L,armour2).getName(), "bob");

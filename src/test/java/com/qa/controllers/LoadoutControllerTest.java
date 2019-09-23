@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.boot.context.embedded.LocalServerPort;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -54,7 +54,7 @@ public class LoadoutControllerTest {
         Loadout loadout = new Loadout();
         loadout.setHelmetId(10L);
 
-        when(repository.findOne(0L)).thenReturn(loadout);
+        when(repository.findById(0L).orElse(null)).thenReturn(loadout);
 
         assertEquals(loadoutController.getLoadout(0L).getHelmetId(), new Long(10));
 
@@ -77,7 +77,7 @@ public class LoadoutControllerTest {
         loadout.setHelmetId(5L);
         loadout.setChestId(7L);
 
-        when(repository.findOne(0L)).thenReturn(loadout);
+        when(repository.findById(0L).orElse(null)).thenReturn(loadout);
 
         assertEquals(loadoutController.deleteLoadout(0L).getChestId(), new Long(7));
     }
@@ -91,7 +91,7 @@ public class LoadoutControllerTest {
         loadout2.setArmId(12L);
         loadout2.setLegId(14L);
 
-        when(repository.findOne(0L)).thenReturn(loadout1);
+        when(repository.findById(0L).orElse(null)).thenReturn(loadout1);
         when(repository.saveAndFlush(loadout1)).thenReturn(loadout1);
 
         assertEquals(loadoutController.updateLoadout(0L,loadout2).getLegId(), new Long(14));

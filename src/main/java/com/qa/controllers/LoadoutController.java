@@ -26,19 +26,19 @@ public class LoadoutController {
 
     @RequestMapping(value = "loadout/{id}",method=RequestMethod.GET)
     public Loadout getLoadout(@PathVariable Long id){
-        return repository.findOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     @RequestMapping(value = "loadout/{id}",method=RequestMethod.DELETE)
     public Loadout deleteLoadout(@PathVariable Long id){
-        Loadout existing = repository.findOne(id);
+        Loadout existing = repository.findById(id).orElse(null);
         repository.delete(existing);
         return existing;
     }
 
     @RequestMapping(value = "loadout/{id}",method=RequestMethod.PUT)
     public Loadout updateLoadout(@PathVariable Long id,@RequestBody Loadout loadout){
-        Loadout existing = repository.findOne(id);
+        Loadout existing = repository.findById(id).orElse(null);
         existing.setHelmetId(loadout.getHelmetId());
         existing.setArmId(loadout.getArmId());
         existing.setChestId(loadout.getChestId());

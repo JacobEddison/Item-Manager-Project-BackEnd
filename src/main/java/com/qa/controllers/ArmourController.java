@@ -26,19 +26,19 @@ public class ArmourController {
 
     @RequestMapping(value = "armour/{id}",method=RequestMethod.GET)
     public Armour getArmour(@PathVariable Long id){
-        return repository.findOne(id);
+        return repository.findById(id).orElse(null);
     }
 
     @RequestMapping(value = "armour/{id}",method=RequestMethod.DELETE)
     public Armour deleteArmour(@PathVariable Long id){
-        Armour existing = repository.findOne(id);
+        Armour existing = repository.findById(id).orElse(null);
         repository.delete(existing);
         return existing;
     }
 
     @RequestMapping(value = "armour/{id}",method=RequestMethod.PUT)
     public Armour updateArmour(@PathVariable Long id,@RequestBody Armour armour){
-        Armour existing = repository.findOne(id);
+        Armour existing = repository.findById(id).orElse(null);
         existing.setName(armour.getName());
         existing.setLight(armour.getLight());
         existing.setSlot(armour.getSlot());
