@@ -6,20 +6,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+//import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.when;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@RunWith(MockitoJUnitRunner.class)
+//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class LoadoutControllerTest {
 
     @InjectMocks
@@ -45,7 +46,7 @@ public class LoadoutControllerTest {
 
         when(repository.findAll()).thenReturn(loadoutList);
 
-        assertEquals(loadoutController.listAllLoadout().get(0).getArmId(),new Long(3));
+        assertEquals(loadoutController.listAllLoadout().get(0).getArmId(), Long.valueOf(3));
 
     }
 
@@ -54,9 +55,9 @@ public class LoadoutControllerTest {
         Loadout loadout = new Loadout();
         loadout.setHelmetId(10L);
 
-        when(repository.findById(0L).orElse(null)).thenReturn(loadout);
+        when(repository.getOne(0L)).thenReturn(loadout);
 
-        assertEquals(loadoutController.getLoadout(0L).getHelmetId(), new Long(10));
+        assertEquals(loadoutController.getLoadout(0L).getHelmetId(), Long.valueOf(10));
 
     }
 
@@ -68,7 +69,7 @@ public class LoadoutControllerTest {
 
         when(repository.saveAndFlush(loadout)).thenReturn(loadout);
 
-        assertEquals(loadoutController.addLoadout(loadout).getLegId(),new Long(7));
+        assertEquals(loadoutController.addLoadout(loadout).getLegId(), Long.valueOf(7));
     }
 
     @Test
@@ -77,9 +78,9 @@ public class LoadoutControllerTest {
         loadout.setHelmetId(5L);
         loadout.setChestId(7L);
 
-        when(repository.findById(0L).orElse(null)).thenReturn(loadout);
+        when(repository.getOne(0L)).thenReturn(loadout);
 
-        assertEquals(loadoutController.deleteLoadout(0L).getChestId(), new Long(7));
+        assertEquals(loadoutController.deleteLoadout(0L).getChestId(), Long.valueOf(7));
     }
 
     @Test
@@ -91,11 +92,11 @@ public class LoadoutControllerTest {
         loadout2.setArmId(12L);
         loadout2.setLegId(14L);
 
-        when(repository.findById(0L).orElse(null)).thenReturn(loadout1);
+        when(repository.getOne(0L)).thenReturn(loadout1);
         when(repository.saveAndFlush(loadout1)).thenReturn(loadout1);
 
-        assertEquals(loadoutController.updateLoadout(0L,loadout2).getLegId(), new Long(14));
-        assertEquals(loadoutController.updateLoadout(0L,loadout2).getArmId(), new Long(12));
+        assertEquals(loadoutController.updateLoadout(0L,loadout2).getLegId(), Long.valueOf(14));
+        assertEquals(loadoutController.updateLoadout(0L,loadout2).getArmId(), Long.valueOf(12));
 
     }
 }
