@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir("./"){
+                dir("~/Item-Manager-Project-BackEnd"){
                     sh 'mvn install -DskipTests'
                 }
             }
         }
         stage('Junit Tests') {
             steps {
-                dir("./") {
+                dir("~/Item-Manager-Project-BackEnd") {
                     sh 'mvn test -Dtest=MokitoTestSuite'
                 }
             }
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Selenium Tests') {
             steps {
-                dir("./") {
+                dir("~/Item-Manager-Project-BackEnd") {
                     sh 'mvn test -Dtest=SeleniumTestSuite'
                 }
             }
