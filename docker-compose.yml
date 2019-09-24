@@ -1,0 +1,10 @@
+version: '3'
+services:
+  frontend:
+    build: /home/jacobweddison/Item-Manager-Project-FrontEnd/
+    ports:
+      - "80:80"
+  backend:
+    build: /home/jacobweddison/Item-Manager-Project-BackEnd/
+    ports:
+      - "9000:9000"
