@@ -1,15 +1,9 @@
-package com.qa.models;
+package com.qa.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.qa.persistence.models.Loadout;
 
-@Entity
-public class Loadout{
+public class LoadoutDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Long helmetId;
@@ -17,6 +11,29 @@ public class Loadout{
     private Long chestId;
     private Long legId;
     private Long markId;
+
+    public LoadoutDto() {
+    }
+
+    public LoadoutDto(Long id, Long helmetId, Long armId, Long chestId, Long legId, Long markId) {
+        super();
+        this.id = id;
+        this.helmetId = helmetId;
+        this.armId = armId;
+        this.chestId = chestId;
+        this.legId = legId;
+        this.markId = markId;
+    }
+
+    public LoadoutDto(Loadout loadout){
+        this.id = loadout.getId();
+        this.helmetId = loadout.getHelmetId();
+        this.armId = loadout.getArmId();
+        this.chestId = loadout.getChestId();
+        this.legId = loadout.getLegId();
+        this.markId = loadout.getMarkId();
+
+    }
 
     public Long getId() {
         return id;

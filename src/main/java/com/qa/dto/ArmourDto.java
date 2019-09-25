@@ -1,15 +1,9 @@
-package com.qa.models;
+package com.qa.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.qa.persistence.models.Armour;
 
-@Entity
-public class Armour {
+public class ArmourDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -18,6 +12,28 @@ public class Armour {
     private String charClass;
     private Long loadoutId;
 
+    public ArmourDto() {
+        super();
+    }
+
+    public ArmourDto(Long id, String name, int light, String slot, String charClass, Long loadoutId) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.light = light;
+        this.slot = slot;
+        this.charClass = charClass;
+        this.loadoutId = loadoutId;
+    }
+
+    public ArmourDto(Armour armour) {
+        this.id = armour.getId();
+        this.name = armour.getName();
+        this.light = armour.getLight();
+        this.slot = armour.getSlot();
+        this.charClass = armour.getCharClass();
+        this.loadoutId = armour.getLoadoutId();
+    }
 
     public Long getId() {
         return id;
@@ -66,4 +82,6 @@ public class Armour {
     public void setLoadoutId(Long loadoutId) {
         this.loadoutId = loadoutId;
     }
+
+
 }
