@@ -28,6 +28,11 @@ public class LoadoutController {
         return new ResponseEntity<>(service.createLoadout(loadout), HttpStatus.CREATED);
     }
 
+    @RequestMapping(path = "loadout/{id}",method = {RequestMethod.GET})
+    public ResponseEntity<LoadoutDto> getloadout(@PathVariable Long id){
+        return new ResponseEntity<>(service.getLoadout(id), HttpStatus.OK);
+    }
+
     @RequestMapping(path = "loadout/{id}", method = {RequestMethod.PUT})
     public ResponseEntity<LoadoutDto> updateLoadout(@PathVariable Long id, @RequestBody LoadoutDto loadout){
         return new ResponseEntity<>(service.updateLoadout(id, loadout), HttpStatus.ACCEPTED);

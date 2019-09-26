@@ -29,6 +29,11 @@ public class ArmourController {
         return new ResponseEntity<>(service.createArmour(armour), HttpStatus.CREATED);
     }
 
+    @RequestMapping(path = "armour/{id}",method = {RequestMethod.GET})
+    public ResponseEntity<ArmourDto> getArmour(@PathVariable Long id){
+        return new ResponseEntity<>(service.getArmour(id), HttpStatus.OK);
+    }
+
     @RequestMapping(path = "armour/{id}", method = {RequestMethod.PUT})
     public ResponseEntity<ArmourDto> updateArmour(@PathVariable Long id, @RequestBody ArmourDto armour){
         return new ResponseEntity<>(service.updateArmour(id,armour), HttpStatus.ACCEPTED);

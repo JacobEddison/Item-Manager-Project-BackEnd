@@ -22,6 +22,14 @@ public class ArmourService {
         return armoursDto;
     }
 
+    public ArmourDto getArmour(Long id){
+        Armour armour = armourRepository.getOne(id);
+        ArmourDto armourDto = new ArmourDto(armour);
+        return armourDto;
+
+
+    }
+
     public ArmourDto createArmour(ArmourDto armourDto){
         armourDto.setId(null);
         Armour armour = Armour.createArmour();

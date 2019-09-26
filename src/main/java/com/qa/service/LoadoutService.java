@@ -22,6 +22,13 @@ public class LoadoutService {
         return loadoutsDto;
     }
 
+    public LoadoutDto getLoadout(Long id){
+        Loadout loadout = loadoutRepository.getOne(id);
+        LoadoutDto loadoutDto = new LoadoutDto(loadout);
+        return loadoutDto;
+
+    }
+
     public LoadoutDto createLoadout(LoadoutDto loadoutDto){
         loadoutDto.setId(null);
         Loadout loadout = Loadout.createLoadout();
