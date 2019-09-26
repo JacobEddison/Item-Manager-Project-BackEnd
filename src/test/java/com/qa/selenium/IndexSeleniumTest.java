@@ -22,10 +22,10 @@ public class IndexSeleniumTest {
 
     @Before
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        //ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("--headless");
-        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
+        driver = new ChromeDriver(chromeOptions);
         driver.get("http://35.189.78.116/");
         driver.manage().window().maximize();
 
