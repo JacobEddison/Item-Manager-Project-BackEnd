@@ -5,8 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 
@@ -15,15 +17,18 @@ import static org.junit.Assert.assertTrue;
 
 public class IndexSeleniumTest {
 
-    private ChromeDriver driver;
+    private WebDriver driver;
 
 
     @Before
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
+        driver = new ChromeDriver(chromeOptions);
         driver.get("http://35.189.78.116/");
+        driver.manage().window().maximize();
+
     }
 
     @After
