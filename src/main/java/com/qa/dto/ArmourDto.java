@@ -10,20 +10,18 @@ public class ArmourDto {
     private int light;
     private String slot;
     private String charClass;
-    private Long loadoutId;
 
     public ArmourDto() {
         super();
     }
 
-    public ArmourDto(Long id, String name, int light, String slot, String charClass, Long loadoutId) {
+    public ArmourDto(Long id, String name, int light, String slot, String charClass) {
         super();
         this.id = id;
         this.name = name;
         this.light = light;
         this.slot = slot;
         this.charClass = charClass;
-        this.loadoutId = loadoutId;
     }
 
     public ArmourDto(Armour armour) {
@@ -32,7 +30,6 @@ public class ArmourDto {
         this.light = armour.getLight();
         this.slot = armour.getSlot();
         this.charClass = armour.getCharClass();
-        this.loadoutId = armour.getLoadoutId();
     }
 
     public Long getId() {
@@ -73,14 +70,6 @@ public class ArmourDto {
 
     public void setCharClass(String charClass) {
         this.charClass = charClass;
-    }
-
-    public Long getLoadoutId() {
-        return loadoutId;
-    }
-
-    public void setLoadoutId(Long loadoutId) {
-        this.loadoutId = loadoutId;
     }
 
 

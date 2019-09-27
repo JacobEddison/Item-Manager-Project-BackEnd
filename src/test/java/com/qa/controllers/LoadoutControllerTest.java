@@ -43,6 +43,15 @@ public class LoadoutControllerTest {
         assertEquals(HttpStatus.OK, loadoutController.getLoadouts().getStatusCode());
     }
 
+    @Test
+    public void getLoadoutTest() {
+        Long id = 1L;
+        LoadoutDto loadoutDto = new LoadoutDto(id,1L,2L,3L,4L,5L);
+
+        Mockito.when(loadoutService.getLoadout(id)).thenReturn(loadoutDto);
+
+        assertEquals(HttpStatus.OK, loadoutController.getLoadout(id).getStatusCode());
+    }
 
     @Test
     public void createLoadoutTest() {

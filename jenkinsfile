@@ -25,12 +25,5 @@ pipeline {
                 }
             }
         }
-        stage('Selenium Tests') {
-            steps {
-                dir("./") {
-                    sh 'mvn test -Dtest=SeleniumTestSuite'
-                }
-            }
-        }
     }
 }

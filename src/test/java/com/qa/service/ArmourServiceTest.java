@@ -28,24 +28,41 @@ public class ArmourServiceTest {
 
     @Test
     public void getArmoursTest() {
-        List<Armour> listOfArmours = new ArrayList<Armour>();
-        listOfArmours.add(new Armour(1L,"bob",123,"arm","titan",3L));
-        listOfArmours.add(new Armour(2L,"dave",450,"head","warlock",4L));
+        List<Armour> listOfArmours = new ArrayList<>();
+        listOfArmours.add(new Armour(1L,"bob",123,"arm","titan"));
+        listOfArmours.add(new Armour(2L,"dave",450,"head","warlock"));
 
-        List<ArmourDto> listOfArmourDtos = new ArrayList<ArmourDto>();
-        listOfArmourDtos.add(new ArmourDto(1L,"bob",123,"arm","titan",3L));
-        listOfArmourDtos.add(new ArmourDto(2L,"dave",450,"head","warlock",4L));
+        List<ArmourDto> listOfArmourDtos = new ArrayList<>();
+        listOfArmourDtos.add(new ArmourDto(1L,"bob",123,"arm","titan"));
+        listOfArmourDtos.add(new ArmourDto(2L,"dave",450,"head","warlock"));
 
         Mockito.when(armourRepository.findAll()).thenReturn(listOfArmours);
         assertEquals(listOfArmourDtos.get(1).getId(), armourService.getArmours().get(1).getId());
-        assertEquals(listOfArmourDtos.get(1).getCharClass(), armourService.getArmours().get(1).getCharClass());
+        assertEquals(listOfArmourDtos.get(0).getCharClass(), armourService.getArmours().get(0).getCharClass());
     }
+
+    @Test
+    public void getArmourTest() {
+        Long id = 1L;
+        Armour armour= new Armour(id,"bob",123,"arm","titan");
+        ArmourDto armourDto = new ArmourDto(id,"bob",123,"arm","titan");
+
+        Mockito.when(armourRepository.getOne(id)).thenReturn(armour);
+        assertEquals(armourDto.getLight(), armourService.getArmour(id).getLight());
+
+    }
+
 
 
     @Test
     public void updateArmourTest() {
-        ArmourDto dto = new ArmourDto(1L,"bob",123,"arm","titan",3L);
-        Armour armour = new Armour(1L,"dave",123,"arm","titan",3L);
+        ArmourDto dto = new ArmourDto();
+        dto.setId(1L);
+        dto.setName("bob");
+        dto.setLight(123);
+        dto.setSlot("arm");
+        dto.setCharClass("titan");
+        Armour armour = new Armour(1L,"dave",123,"arm","titan");
 
         Mockito.when(armourRepository.getOne(dto.getId())).thenReturn(armour);
         assertEquals("bob", armourService.updateArmour(armour.getId(), dto).getName());
@@ -55,7 +72,7 @@ public class ArmourServiceTest {
     @Test
     public void deleteArmourTest() {
         Long id = 1L;
-        Armour armour = new Armour(id,"bob",123,"arm","titan",3L);
+        Armour armour = new Armour(id,"bob",123,"arm","titan");
         Mockito.when(armourRepository.getOne(id)).thenReturn(armour);
 
         assertEquals("arm", armourService.deleteArmour(id).getSlot());

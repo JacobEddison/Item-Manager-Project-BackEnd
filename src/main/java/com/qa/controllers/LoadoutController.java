@@ -29,7 +29,7 @@ public class LoadoutController {
     }
 
     @RequestMapping(path = "loadout/{id}",method = {RequestMethod.GET})
-    public ResponseEntity<LoadoutDto> getloadout(@PathVariable Long id){
+    public ResponseEntity<LoadoutDto> getLoadout(@PathVariable Long id){
         return new ResponseEntity<>(service.getLoadout(id), HttpStatus.OK);
     }
 

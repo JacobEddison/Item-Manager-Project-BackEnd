@@ -48,7 +48,6 @@ public class ArmourService {
         armour.setCharClass(armourDto.getCharClass());
         armour.setLight(armourDto.getLight());
         armour.setSlot(armourDto.getSlot());
-        armour.setLoadoutId(armourDto.getLoadoutId());
         armourRepository.flush();
         return new ArmourDto(armour);
     }

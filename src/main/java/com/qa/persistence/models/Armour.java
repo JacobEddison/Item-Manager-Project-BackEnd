@@ -16,20 +16,18 @@ public class Armour {
     private int light;
     private String slot;
     private String charClass;
-    private Long loadoutId;
 
     public Armour() {
         super();
     }
 
-    public Armour(Long id, String name, int light, String slot, String charClass, Long loadoutId) {
+    public Armour(Long id, String name, int light, String slot, String charClass) {
         super();
         this.id = id;
         this.name = name;
         this.light = light;
         this.slot = slot;
         this.charClass = charClass;
-        this.loadoutId = loadoutId;
     }
 
     public Long getId() {
@@ -70,14 +68,6 @@ public class Armour {
 
     public void setCharClass(String charClass) {
         this.charClass = charClass;
-    }
-
-    public Long getLoadoutId() {
-        return loadoutId;
-    }
-
-    public void setLoadoutId(Long loadoutId) {
-        this.loadoutId = loadoutId;
     }
 
     public static Armour createArmour(){
