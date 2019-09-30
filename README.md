@@ -84,9 +84,10 @@ This application can be deployed both locally and externally through a virtual m
 <a name="FE"></a>
 ## Front End Design
 ### Wireframes
-I seam to have misplaced my draw.io wireframes however i have the origional sketches I made and will update this as soon as possible.
-
-![Old Wireframes](/documents/Wireframe_1.pdf)
+The first diagram shows my initial plan for the website however i decided to revise it as fitting everything into one html would have been difficult.
+![Initial design](/documents/Initial_Wireframe.jpeg)
+After making some revisions i decided to split the website for the initial inventory and then separate pages for each loadout, they would all share a similar design.
+![Modified Wireframe](/documents/Wireframe_Update.jpeg)
 
 ### Final Appearance
 
