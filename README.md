@@ -95,6 +95,8 @@ After making some revisions i decided to split the website for the initial inven
 
 ### Final Appearance
 
+Front end matched wireframe well. 
+
 ![FrontEnd Screenshots](/documents/FrontEnd1.png)
 ![](/documents/FrontEnd2.png)
 
