@@ -85,8 +85,12 @@ This application can be deployed both locally and externally through a virtual m
 ## Front End Design
 ### Wireframes
 The first diagram shows my initial plan for the website however i decided to revise it as fitting everything into one html would have been difficult.
+
+
 ![Initial design](/documents/Initial_Wireframe.jpeg)
+
 After making some revisions i decided to split the website for the initial inventory and then separate pages for each loadout, they would all share a similar design.
+
 ![Modified Wireframe](/documents/Wireframe_Update.jpeg)
 
 ### Final Appearance
